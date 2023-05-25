@@ -1,0 +1,24 @@
+@import "/src/styles/colors.scss";
+
+.user-stocks {
+  & > * {
+    margin-top: 15px;
+  }
+
+  .stock {
+    display: flex;
+    padding: 10px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: $black-light;
+
+    .symbol {
+      width: 120px;
+    }
+
+    .balance {
+      width: 100px;
+    }
+  }
+}
+
