@@ -21,26 +21,29 @@ body {
   width: 100%;
   background: $black-medium;
   overflow: auto;
+  font-family: 'Roboto Slab';
 }
 
 .header {
   background: $black-strong;
   min-height: 100px;
-  color: $yellow-text;
+  color: $white-text;
+  padding: 0px 40px;
 }
 
 .main-content {
   height: auto;
-  color: $white-text;
-  font-family: 'Roboto Slab';
-  font-style: normal;
+  color: $second-white-text;
   padding: 40px
 }
 
 .page-title {
-  font-weight: 500;
   font-size: 24px;
-  line-height: 32px;
   padding: 0px;
   margin: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none !important;
 }
