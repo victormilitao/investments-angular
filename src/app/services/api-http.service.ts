@@ -23,7 +23,6 @@ export class ApiHttpService {
   constructor(private http: HttpClient) { }
 
   public get(path: string, params?: any) {
-    // return this.http.get(this.url + path, options);
     return this.Request({
       method: "GET",
       params: params,

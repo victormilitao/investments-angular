@@ -6,6 +6,7 @@ export class UserStocksService {
   constructor(private apiService: ApiHttpService) { }
 
   public get() {
-    return this.apiService.get("api/v1/users/3c757c5a-540d-4e6b-b933-020dac166772/user_stocks?page=1&limit=50");
+    const userId = "5935d623-ba15-4f1c-b9f7-ca1a0deca4f2"
+    return this.apiService.get(`api/v1/users/${userId}/stocks?page=1&limit=50`);
   }
 }
