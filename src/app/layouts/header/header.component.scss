@@ -1,0 +1,39 @@
+@import "src/styles/colors.scss";
+
+.app-header {
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  .menu {
+    height: 36px;
+    display: flex;
+    align-items: baseline;
+
+    .logo {
+      font-size: 30px;
+    }
+
+    .menu-item {
+      font-size: 20px;
+
+      & + .menu-item {
+        margin-left: 30px;
+      }
+    }
+  }
+
+  .space-left {
+    margin-left: 80px;
+  }
+
+  .user {
+    margin-left: auto;
+    color: $yellow-text;
+    font-size: 16px;
+  }
+
+  .logout {
+    margin-left: 48px;
+  }
+}
