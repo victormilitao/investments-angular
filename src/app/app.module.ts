@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UserStocksService } from './services/user-stocks.service';
 import { ApiHttpService } from './services/api-http.service';
 import { HeaderComponent } from './layouts/header/header.component';
+import { HomeModule } from './pages/home/home.module';
 
 registerLocaleData(ptBr);
 
@@ -17,12 +18,13 @@ registerLocaleData(ptBr);
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserStocksComponent
+    UserStocksComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HomeModule,
   ],
   providers: [
     {
