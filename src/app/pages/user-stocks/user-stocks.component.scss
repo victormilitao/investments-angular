@@ -1,5 +1,3 @@
-@import "/src/styles/colors.scss";
-
 .user-stocks {
   & > * {
     margin-top: 15px;
@@ -10,7 +8,7 @@
     padding: 10px;
     width: 250px;
     border-radius: 10px;
-    background-color: $black-light;
+    background-color: var(--ds-black-300);
 
     .symbol {
       width: 120px;
