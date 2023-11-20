@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http'
+import { Component } from '@angular/core'
+import { ApiHttpService } from 'src/app/services/api-http.service'
+import { UserStocksService } from 'src/app/services/user-stocks.service'
 
 @Component({
   selector: 'assets-importer',
@@ -6,11 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./assets-importer.component.scss'],
 })
 export class AssetsImporterComponent {
-  selectedFileName: string = ''
+  file!: File
 
-  onFileSelected(event: any) {
-    const file: File = event.target.files[0];
-    this.selectedFileName = file ? file.name : '';
-    console.dir(file)
+  constructor(private userStockService: UserStocksService, private http: HttpClient) { }
+
+  onFileSelected(event: any): void {
+    this.file = event.target.files[0]
+    const formData = new FormData()
+    formData.append('document', this.file, this.file.name)
+    this.userStockService.importStocks(formData)
+    .subscribe((response) => {
+      console.dir(response)
+    })
   }
 }

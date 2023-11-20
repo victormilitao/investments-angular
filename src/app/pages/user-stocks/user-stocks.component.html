@@ -1,7 +1,7 @@
 <p class="page-title">Ações</p>
 <div *ngFor="let userStock of userStocks" class="user-stocks">
   <div class="stock">
-    <span class="symbol">{{userStock?.stock?.acronym}}</span>
+    <span class="symbol">{{userStock?.stock?.ticker_symbol}}</span>
     <span class="balance">{{userStock?.balance | currency }}</span>
   </div>
 </div>

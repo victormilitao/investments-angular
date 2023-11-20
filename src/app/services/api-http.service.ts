@@ -30,8 +30,12 @@ export class ApiHttpService {
     });
   }
 
-  public post(url: string, data: any, options?: any) {
-    return this.http.post(url, data, options);
+  public post(path: string, body: any) {
+    return this.Request({
+      method: "POST",
+      body: body,
+      path: path,
+    });
   }
 
   public put(url: string, data: any, options?: any) {
@@ -48,7 +52,7 @@ export class ApiHttpService {
       'Access-Control-Allow-Origin': '*',
     });
 
-    return this.http.request<any>(api.method, this.url + api.path, {
+    return this.http.request<HttpMethod>(api.method, this.url + api.path, {
       body: api.body,
       params: api.params,
       // headers: headers,
