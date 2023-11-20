@@ -5,7 +5,7 @@ import { UserStocksService } from 'src/app/services/user-stocks.service';
 export interface Stock {
   id: number
   name: string
-  acronym: string
+  ticker_symbol: string
   suffix: string
 }
 

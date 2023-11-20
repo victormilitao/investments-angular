@@ -1,4 +1,4 @@
-@import "src/styles/colors.scss";
+$menu-height: 36px;
 
 .app-header {
   height: 100%;
@@ -6,9 +6,8 @@
   align-items: center;
 
   .menu {
-    height: 36px;
     display: flex;
-    align-items: baseline;
+    align-items: center;
 
     .logo {
       font-size: 30px;
@@ -16,6 +15,11 @@
 
     .menu-item {
       font-size: 20px;
+
+      a:hover {
+        text-decoration: underline;
+        text-decoration-color: var(--ds-orange-500);
+      }
 
       & + .menu-item {
         margin-left: 30px;
@@ -29,7 +33,7 @@
 
   .user {
     margin-left: auto;
-    color: $yellow-text;
+    color: var(--ds-orange-500);
     font-size: 16px;
   }
 

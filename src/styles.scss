@@ -1,11 +1,13 @@
+@import '~material-icons/iconfont/material-icons.css';
+
 @font-face {
   font-family: 'Roboto Slab';
   src: url('./assets/fonts/roboto-slab.ttf') format('truetype');
 }
 
 
-@import "./styles/global.scss";
 @import "./styles/colors.scss";
+@import "./styles/global.scss";
 
 @tailwind base;
 @tailwind components;
