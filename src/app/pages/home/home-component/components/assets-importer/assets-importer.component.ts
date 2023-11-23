@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http'
 import { Component } from '@angular/core'
-import { ApiHttpService } from 'src/app/services/api-http.service'
 import { UserStocksService } from 'src/app/services/user-stocks.service'
 
 @Component({
