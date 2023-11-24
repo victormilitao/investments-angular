@@ -15,6 +15,7 @@ import { SignupComponent } from './pages/signup/signup.component'
 import { RouterModule } from '@angular/router'
 import { LoggedComponent } from './layouts/logged/logged.component'
 import { PublicComponent } from './layouts/public/public.component'
+import { ReactiveFormsModule } from '@angular/forms'
 
 registerLocaleData(ptBr)
 
@@ -25,9 +26,16 @@ registerLocaleData(ptBr)
     UserStocksComponent,
     SignupComponent,
     LoggedComponent,
-    PublicComponent
+    PublicComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, HomeModule, RouterModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HomeModule,
+    RouterModule,
+    ReactiveFormsModule,
+  ],
   providers: [
     {
       provide: LOCALE_ID,

@@ -1,9 +1,13 @@
 <div class="login h-full flex flex-col items-center justify-center gap-12">
   <p class="text-[36px]">Investments</p>
-  <div class="form">
-    Form
+  <div class="form w-1/6">
+    <form [formGroup]="form" class="flex flex-col gap-4">
+      <input id="name" type="text" formControlName="name" placeholder="Nome">
+      <input id="email" type="text" formControlName="email" placeholder="Email">
+      <input id="password" type="text" formControlName="password" placeholder="Password">
+    </form>
   </div>
   <div>
-    <button class="btn-primary">Criar conta</button>
+    <button (click)="clickButton()" class="btn-primary">Criar conta</button>
   </div>
 </div>
