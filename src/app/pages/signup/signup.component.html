@@ -1,0 +1,32 @@
+<div class="flex items-center justify-center h-screen">
+  <div
+    class="login flex flex-col items-center justify-center gap-12 w-1/3 h-[650px]"
+  >
+    <p class="text-[36px]">Investments</p>
+    <div class="form w-1/2">
+      <form [formGroup]="form" class="flex flex-col gap-7">
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Nome"
+        />
+        <input
+          id="email"
+          type="text"
+          formControlName="email"
+          placeholder="Email"
+        />
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Password"
+        />
+      </form>
+    </div>
+    <div>
+      <button (click)="submit()" class="btn-primary">Criar conta</button>
+    </div>
+  </div>
+</div>

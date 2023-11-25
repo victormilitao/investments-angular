@@ -4,9 +4,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body {
+html,
+body {
   margin: 0;
-  padding: 0; 
+  padding: 0;
 }
 
 .main-container {
@@ -29,7 +30,7 @@ html, body {
 .main-content {
   height: auto;
   color: var(--ds-white-100);
-  padding: 40px
+  padding: 40px;
 }
 
 .page-title {
@@ -45,6 +46,24 @@ a {
 }
 
 // Inputs
-input[type="file"] {
+input[type='file'] {
   display: none;
+}
+
+input[type='text'] {
+  height: 40px;
+  background: var(--ds-black-300);
+  color: var(--ds-white-100);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+// Buttons
+.btn-primary {
+  background-color: var(--ds-orange-500);
+  color: var(--ds-black-400);
+  padding: 18px;
+  border-radius: 5px;
+  font-weight: 500;
+  min-width: 200px;
 }
