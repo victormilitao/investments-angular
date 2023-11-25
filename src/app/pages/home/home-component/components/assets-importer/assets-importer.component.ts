@@ -12,10 +12,7 @@ export class AssetsImporterComponent implements OnDestroy {
   file!: File
   destroy$: Subject<boolean> = new Subject<boolean>()
 
-  constructor(
-    private userStockService: UserStocksService,
-    private http: HttpClient
-  ) {}
+  constructor(private userStockService: UserStocksService) {}
 
   onFileSelected(event: any): void {
     this.file = event.target.files[0]
@@ -25,7 +22,7 @@ export class AssetsImporterComponent implements OnDestroy {
       .importStocks(formData)
       .pipe(takeUntil(this.destroy$))
       .subscribe((response) => {
-        console.dir(response)
+        this.userStockService.getPatrimony()
       })
   }
 
