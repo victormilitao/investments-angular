@@ -1,16 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { Router } from '@angular/router'
 import { Subject, takeUntil } from 'rxjs'
+import { User } from 'src/app/interfaces/user.interface'
 import { ApiHttpService } from 'src/app/services/api-http.service'
-
-export interface User {
-  id?: string
-  email?: string
-  name?: string
-  password?: string
-  created_at?: string
-  updated_at?: string
-}
 
 export interface UserApi {
   user: User
@@ -26,7 +19,8 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private apiService: ApiHttpService
+    private apiService: ApiHttpService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +38,9 @@ export class SignupComponent implements OnInit {
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (response: UserApi) => {
-          if (response?.user?.id) {
-            localStorage.setItem('userId', response?.user?.id.toString())
+          if (response?.user) {
+            localStorage.setItem('user', JSON.stringify(response?.user))
+            this.router.navigate(['/'])
           }
         },
         error: (error) => console.error(error),

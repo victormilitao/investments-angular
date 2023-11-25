@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core'
-import { BehaviorSubject } from 'rxjs'
+import { User } from '../interfaces/user.interface'
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  userId!: string
+  user!: User | undefined
 
   constructor() {
-    const userId = localStorage.getItem('userId')
-    if (userId) this.userId = userId
+    const user = localStorage.getItem('user')
+    if (user) this.user = JSON.parse(user)
   }
 }
