@@ -16,6 +16,7 @@ import { RouterModule } from '@angular/router'
 import { LoggedComponent } from './layouts/logged/logged.component'
 import { PublicComponent } from './layouts/public/public.component'
 import { ReactiveFormsModule } from '@angular/forms'
+import { SigninComponent } from './pages/signin/signin.component'
 
 registerLocaleData(ptBr)
 
@@ -27,6 +28,7 @@ registerLocaleData(ptBr)
     SignupComponent,
     LoggedComponent,
     PublicComponent,
+    SigninComponent,
   ],
   imports: [
     BrowserModule,

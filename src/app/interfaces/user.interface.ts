@@ -1,3 +1,5 @@
+import { Stock } from "./stock.interface"
+
 export interface User {
   id?: string
   email?: string
@@ -5,4 +7,9 @@ export interface User {
   password?: string
   created_at?: string
   updated_at?: string
+}
+
+export interface UserStock {
+  stock: Stock
+  balance: number
 }

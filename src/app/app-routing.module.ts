@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home-component/home.component'
 import { SignupComponent } from './pages/signup/signup.component'
 import { PublicComponent } from './layouts/public/public.component'
 import { LoggedComponent } from './layouts/logged/logged.component'
+import { SigninComponent } from './pages/signin/signin.component'
 
 const routes: Routes = [
   {
@@ -18,7 +19,10 @@ const routes: Routes = [
   {
     path: '',
     component: PublicComponent,
-    children: [{ path: 'signup', component: SignupComponent }],
+    children: [
+      { path: 'signup', component: SignupComponent },
+      { path: 'signin', component: SigninComponent },
+    ],
   },
 ]
 

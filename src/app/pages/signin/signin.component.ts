@@ -1,16 +1,16 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router'
-import { Subject } from 'rxjs'
+import { Subject, takeUntil } from 'rxjs'
 import { UserApi } from 'src/app/interfaces/api.interface'
 import { AuthService } from 'src/app/services/auth.service'
 
 @Component({
-  selector: 'signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+  selector: 'signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss'],
 })
-export class SignupComponent implements OnInit, OnDestroy {
+export class SigninComponent implements OnInit, OnDestroy {
   form!: FormGroup
   destroy$: Subject<boolean> = new Subject<boolean>()
 
@@ -21,19 +21,29 @@ export class SignupComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
+    this.setForm()
+  }
+
+  setForm(): void {
     this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      email: [''],
-      password: [''],
+      email: ['', Validators.required],
+      password: ['', Validators.required],
     })
   }
 
-  signup(): void {
+  signin(): void {
     const data: UserApi = { user: this.form.value }
-    this.authService.signup(data).subscribe({
-      next: () => this.router.navigate(['/']),
-      error: (error) => console.error(error),
-    })
+    this.authService.signin(data)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe({
+        next: (response: UserApi) => {
+          if (response?.user) {
+            localStorage.setItem('user', JSON.stringify(response?.user))
+            this.router.navigate(['/'])
+          }
+        },
+        error: (error) => console.error(error),
+      })
   }
 
   ngOnDestroy(): void {

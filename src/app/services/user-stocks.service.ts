@@ -3,10 +3,14 @@ import { ApiHttpService } from './api-http.service'
 import { AuthService } from './auth.service'
 import { BehaviorSubject, Observable, Subject, takeUntil } from 'rxjs'
 import { IPatrimony } from '../interfaces/patrimony.interface'
+import { UserStock } from '../interfaces/user.interface'
 
+interface IApiResponse {
+  user_stocks: UserStock[]
+}
 @Injectable()
 export class UserStocksService implements OnDestroy {
-  private userId: string | undefined = '3c25558a-665b-426f-af05-f0f343a53846'
+  private userId: string | undefined
   destroy$: Subject<boolean> = new Subject()
   private patrimonySource = new BehaviorSubject<IPatrimony | null>(null)
   patrimony: Observable<IPatrimony | null> = this.patrimonySource.asObservable()
@@ -18,10 +22,8 @@ export class UserStocksService implements OnDestroy {
     this.userId = this.authService.user?.id
   }
 
-  get() {
-    return this.apiService.get(
-      `api/v1/users/${this.userId}/stocks?page=1&limit=50`
-    )
+  getUserStocks(): Observable<IApiResponse> {
+    return this.apiService.get(`api/v1/users/${this.userId}/stocks`)
   }
 
   importStocks(formData: any) {

@@ -1,18 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { Subject, takeUntil } from 'rxjs'
+import { UserStock } from 'src/app/interfaces/user.interface'
 import { UserStocksService } from 'src/app/services/user-stocks.service'
-
-export interface Stock {
-  id: number
-  name: string
-  ticker_symbol: string
-  suffix: string
-}
-
-export interface UserStock {
-  stock: Stock
-  balance: number
-}
 
 @Component({
   selector: 'app-user-stocks',
@@ -31,11 +20,9 @@ export class UserStocksComponent implements OnInit, OnDestroy {
 
   setUserStocks(): void {
     this.userStocksService
-      .get()
+      .getUserStocks()
       .pipe(takeUntil(this.destroy$))
-      .subscribe((response) => {
-        this.userStocks = response.user_stocks as UserStock[]
-      })
+      .subscribe((response) => (this.userStocks = response.user_stocks))
   }
 
   ngOnDestroy(): void {
